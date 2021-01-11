@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <style>
+      #outer_container {
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: 2fr 1fr;
+        width: 920px;
+      }
+      #board {
+        border: 1px solid black;
+        display: grid;
+        grid-gap: 0;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        width: 600px;
+      }
+      #settings_container {
+        border: 1px solid black;
+        padding: 0 10px;
+        width: 306px;
+      }
+
+      .settings_row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 0px;
+      }
+
+      .settings_header {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 20px;
+      }
+
+      .settings_label {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .settings_label_container {
+        padding-right: 10px;
+      }
+
+      .cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 75px;
+        height: 75px;
+      }
+
+      .piece {
+        font-size: xx-large;
+        padding: 0px 8px;
+      }
+
+      @keyframes selected_flash {
+        0% {
+          border-color: rgb(0, 100, 100);
+        }
+        50% {
+          border-color: rgb(0, 255, 255);
+        }
+        100% {
+          border-color: rgb(0, 102, 102);
+        }
+      }
+
+      .selected {
+        animation: selected_flash linear 1.5s infinite;
+      }
+    </style>
+
+    <script></script>
+  </head>
+  <body>
+    <div id="outer_container">
+      <div id="board"></div>
+      <div id="settings_container">
+        <h1 class="settings_header">Settings</h1>
+        <div class="settings_row">
+          <div class="settings_label_container">
+            <span class="settings_label">View:</span>
+          </div>
+          <div class="settings_value_container">
+            <select id="view_selector">
+              <option>White</option>
+              <option>Black</option>
+            </select>
+          </div>
+        </div>
+        <div class="settings_row">
+          <div>
+            <span class="settings_label">White squares</span>
+            <input
+              id="square_color_selector_white"
+              type="color"
+              value="#ffffff"
+            />
+          </div>
+        </div>
+        <div class="settings_row">
+          <div>
+            <span class="settings_label" style="padding-right: 2px"
+              >Black squares</span
+            >
+            <input
+              id="square_color_selector_black"
+              type="color"
+              value="#000000"
+            />
+          </div>
+        </div>
+        <hr />
+        <h1 class="settings_header">Move History</h1>
+        <div id="move_history"></div>
+      </div>
+    </div>
+  </body>
+  <script src="state.js"></script>
+  <script src="board.js"></script>
+  <script src="move.js"></script>
+  <script src="restrictions.js"></script>
+  <script src="script.js"></script>
+  <script src="settings.js"></script>
+</html>
